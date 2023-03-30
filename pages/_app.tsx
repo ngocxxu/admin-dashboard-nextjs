@@ -1,4 +1,4 @@
-import Sidebar from '@/components/Sidebar';
+import Sidebar from '@/components/Sidebar/Sidebar';
 import '@/styles/globals.css';
 import { MantineProvider } from '@mantine/core';
 import type { AppProps } from 'next/app';
