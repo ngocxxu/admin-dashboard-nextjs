@@ -9,6 +9,7 @@ import {
 } from '@tabler/icons-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { ScriptProps } from 'next/script';
 import React, { useState } from 'react';
 import Header from '../Header/Header';
@@ -34,8 +35,8 @@ const data = [
     label: 'Products',
     rightSection: <IconChevronRight size='1rem' stroke={1.5} />,
     children: [
-      { label: 'Add Product', path: '/products' },
-      { label: 'Product List', path: '/products' },
+      { label: 'Add Product', path: '/products/add-product' },
+      { label: 'Product List', path: '/products/product-list' },
     ],
     path: '/products',
   },
@@ -59,11 +60,20 @@ const data = [
 
 const Sidebar: React.FC<ScriptProps> = ({ children }) => {
   const [active, setActive] = useState(0);
+  const [activeChild, setActiveChild] = useState(0);
+  const router = useRouter();
+
   const items = data.map((item, index) => (
     <Link href={item.path} passHref>
       <NavLink
+        classNames={{
+          root: 'py-4',
+          label: `uppercase text-md ${
+            router.pathname === `${item.path}` ? 'text-black' : 'text-gray-400'
+          }`,
+        }}
         key={item.label}
-        active={index === active}
+        active={router.pathname === `${item.path}`}
         label={item.label}
         icon={<item.icon size='1rem' stroke={1.5} />}
         onClick={() => setActive(index)}
@@ -71,9 +81,26 @@ const Sidebar: React.FC<ScriptProps> = ({ children }) => {
       >
         {item.children &&
           item.children.map((item, idx) => (
-            <Link href={item.path} passHref>
-              <NavLink key={idx} label={item.label} />
-            </Link>
+            <div className='block'>
+              <Link href={item.path} passHref>
+                <NavLink
+                  classNames={{
+                    label: `uppercase text-md ${
+                      router.pathname === `${item.path}`
+                        ? 'text-black'
+                        : 'text-gray-400'
+                    }`,
+                  }}
+                  active={router.pathname === `${item.path}`}
+                  key={idx}
+                  label={item.label}
+                  onClick={() => {
+                    setActive(index);
+                    setActiveChild(idx);
+                  }}
+                />
+              </Link>
+            </div>
           ))}
       </NavLink>
     </Link>
@@ -83,17 +110,18 @@ const Sidebar: React.FC<ScriptProps> = ({ children }) => {
     <div className='flex'>
       <div className='w-[300px] h-screen bg-white border-r-[1px] flex flex-col justify-between'>
         <div>
-          <Link href='/'>
+          <div className='ml-3'>
             <div className='my-4'>
-              <Image
-                src='/assets/img/logoo.png'
-                alt='me'
-                width='30'
-                height='30'
-              />
+              <Link href='/' passHref>
+                <Image
+                  src='/assets/img/logoo.png'
+                  alt='me'
+                  width='30'
+                  height='30'
+                />
+              </Link>
             </div>
-          </Link>
-          <span className='border-b-[1px] border-gray-200 w-full'></span>
+          </div>
 
           {items}
         </div>
