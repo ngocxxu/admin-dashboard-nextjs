@@ -25,8 +25,8 @@ const data = [
     label: 'Customers',
     rightSection: <IconChevronRight size='1rem' stroke={1.5} />,
     children: [
-      { label: 'Customer List', path: '/customers' },
-      { label: 'Customer Profile', path: '/customers/' },
+      { label: 'Customer List', path: '/customers/customer-list' },
+      { label: 'Customer Profile', path: '/customers/customer-profile/[slug]' },
     ],
     path: '/customers',
   },
@@ -45,9 +45,9 @@ const data = [
     label: 'Orders',
     rightSection: <IconChevronRight size='1rem' stroke={1.5} />,
     children: [
-      { label: 'New Order', path: '/orders' },
-      { label: 'Order History', path: '/orders' },
-      { label: 'Order Detail', path: '/orders' },
+      { label: 'New Order', path: '/orders/new-order' },
+      { label: 'Order History', path: '/orders/order-history' },
+      { label: 'Order Detail', path: '/orders/order-detail' },
     ],
     path: '/orders',
   },
@@ -59,12 +59,10 @@ const data = [
 ];
 
 const Sidebar: React.FC<ScriptProps> = ({ children }) => {
-  const [active, setActive] = useState(0);
-  const [activeChild, setActiveChild] = useState(0);
   const router = useRouter();
 
   const items = data.map((item, index) => (
-    <Link href={item.path} passHref>
+    <Link href={item.path} passHref legacyBehavior>
       <NavLink
         classNames={{
           root: 'py-4',
@@ -76,13 +74,12 @@ const Sidebar: React.FC<ScriptProps> = ({ children }) => {
         active={router.pathname === `${item.path}`}
         label={item.label}
         icon={<item.icon size='1rem' stroke={1.5} />}
-        onClick={() => setActive(index)}
         childrenOffset={28}
       >
         {item.children &&
           item.children.map((item, idx) => (
             <div className='block'>
-              <Link href={item.path} passHref>
+              <Link href={item.path} passHref legacyBehavior>
                 <NavLink
                   classNames={{
                     label: `uppercase text-md ${
@@ -94,10 +91,6 @@ const Sidebar: React.FC<ScriptProps> = ({ children }) => {
                   active={router.pathname === `${item.path}`}
                   key={idx}
                   label={item.label}
-                  onClick={() => {
-                    setActive(index);
-                    setActiveChild(idx);
-                  }}
                 />
               </Link>
             </div>
