@@ -11,3 +11,15 @@ export type TChartData = {
     }
   ];
 };
+
+// COMPONENTS
+export type TButtonCustom1 = {
+  title: string;
+  path: string;
+};
+
+export type TTextHeader = {
+  titleText: string;
+  titleButton?: string;
+  path: string;
+};

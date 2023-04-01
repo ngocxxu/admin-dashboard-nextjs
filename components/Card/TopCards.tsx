@@ -13,7 +13,7 @@ const arrTopCards = [
   },
   {
     price: '$78,846',
-    content: 'Customers',
+    content: 'Users',
     percent: '+18%',
   },
 ];
