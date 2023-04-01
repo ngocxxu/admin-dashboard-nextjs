@@ -1,7 +1,16 @@
-import React from "react";
+import { TextHeader } from '@/components/Text';
+import { REVIEWS_ROUTE } from '@/utils/consts';
+import React from 'react';
 
-const reviews = () => {
-  return <div>reviews</div>;
+const Reviews = () => {
+  return (
+    <div>
+      <TextHeader
+        titleText='Reviews'
+        path={REVIEWS_ROUTE}
+      />
+    </div>
+  );
 };
 
-export default reviews;
+export default Reviews;
