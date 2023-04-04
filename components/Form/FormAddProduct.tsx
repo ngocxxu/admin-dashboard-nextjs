@@ -1,16 +1,19 @@
-import { Button, Group, MultiSelect, TextInput, Textarea } from '@mantine/core';
-import React from 'react';
-import { ButtonCustom1 } from '../Button';
+import { Button, MultiSelect, Textarea, TextInput } from '@mantine/core';
 
 const FormAddProduct = () => {
   return (
-    <form>
-      <div className='flex items-center gap-4'>
+    <form className='flex flex-col gap-10'>
+      <div className='md:flex items-center gap-4'>
         <div className='flex-1'>
-          <TextInput label='PRODUCT NAME' withAsterisk />
+          <TextInput
+            classNames={{ label: 'text-gray600' }}
+            label='PRODUCT NAME'
+            withAsterisk
+          />
         </div>
         <div className='flex-1'>
           <MultiSelect
+            classNames={{ label: 'text-gray600' }}
             label='SELECT CATEGORIES'
             placeholder='Pick at least one category'
             data={[
@@ -23,23 +26,48 @@ const FormAddProduct = () => {
         </div>
       </div>
 
-      <TextInput label='SLUG' />
+      <TextInput classNames={{ label: 'text-gray600' }} label='SLUG' />
 
-      <div className='flex items-center gap-4'>
+      <div className='md:flex items-center gap-4'>
         <div className='flex-1'>
-          <TextInput label='PRICE ( In USD )' withAsterisk />
+          <TextInput
+            label={
+              <p className='text-gray600'>
+                PRICE <span className='text-red-500'>*</span>
+                <span className='text-gray400 text-[13px]'> ( In USD )</span>
+              </p>
+            }
+          />
         </div>
         <div className='flex-1'>
-          <TextInput label='QUANTITY' withAsterisk />
+          <TextInput
+            classNames={{ label: 'text-gray600' }}
+            label='QUANTITY'
+            withAsterisk
+          />
         </div>
       </div>
 
-      <Textarea label='Description' withAsterisk />
+      <Textarea
+        classNames={{ label: 'text-gray600' }}
+        label='DESCRIPTIONS'
+        withAsterisk
+      />
 
-      <TextInput label='PRODUCT TAGS ( Type and make comma to separate tags )' />
+      <TextInput
+        label={
+          <p className='text-gray600'>
+            PRODUCT TAGS
+            <span className='text-gray400 text-[13px]'>
+              {' '}
+              ( Type and make comma to separate tags )
+            </span>
+          </p>
+        }
+      />
 
       <Button
-        className='bg-purple300 hover:bg-hoverPurple400'
+        className='bg-purple300 hover:bg-hoverPurple400 w-fit'
         radius='xl'
         size='sm'
       >

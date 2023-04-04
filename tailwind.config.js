@@ -15,6 +15,7 @@ module.exports = {
         purple300:'#88aaf3',
         gray400: '#a6aab4',
         gray500: '#868e96',
+        gray600: '#8a909d'
       },
     },
   },
