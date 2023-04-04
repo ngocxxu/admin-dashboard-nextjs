@@ -8,7 +8,7 @@ import MenuUser from './MenuUser';
 
 const Header = () => {
   return (
-    <div className='flex justify-between px-4 py-[13.5px] border-b-[1px] border-gray-200'>
+    <div className='flex justify-between px-4 py-[13.5px] border-b-[1px] border-gray-200 bg-white'>
       <ActionIcon size='lg' variant='transparent'>
         <IconLayoutSidebarLeftCollapse size='1.625rem' />
       </ActionIcon>

@@ -2,7 +2,7 @@ import { Button, MultiSelect, Textarea, TextInput } from '@mantine/core';
 
 const FormAddProduct = () => {
   return (
-    <form className='flex flex-col gap-10'>
+    <form className='flex flex-col gap-6'>
       <div className='md:flex items-center gap-4'>
         <div className='flex-1'>
           <TextInput

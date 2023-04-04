@@ -130,7 +130,7 @@ const Sidebar: React.FC<ScriptProps> = ({ children }) => {
         </div>
       </div>
 
-      <main className='w-full'>
+      <main className='w-full bg-gray100'>
         <Header />
         {children}
       </main>

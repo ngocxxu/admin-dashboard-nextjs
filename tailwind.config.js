@@ -13,6 +13,7 @@ module.exports = {
       colors: {
         hoverPurple400:'#6d88c2',
         purple300:'#88aaf3',
+        gray100: '#fdfdfd',
         gray400: '#a6aab4',
         gray500: '#868e96',
         gray600: '#8a909d'
