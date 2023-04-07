@@ -2,7 +2,7 @@ import FormAddProduct from '@/components/Form/FormAddProduct';
 import { TextHeader } from '@/components/Text';
 import UploadImage from '@/components/UploadImage';
 import { PRODUCT_LIST_ROUTE } from '@/utils/consts';
-import { Box, Divider, Group } from '@mantine/core';
+import { Box, Divider } from '@mantine/core';
 
 const AddProduct = () => {
   return (
