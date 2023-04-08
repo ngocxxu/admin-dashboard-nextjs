@@ -77,7 +77,7 @@ const TableFeature = () => {
   ));
 
   return (
-    <Table withBorder verticalSpacing='xl'>
+    <Table verticalSpacing='xs'>
       <thead>
         <tr>
           <th>Product</th>

@@ -10,7 +10,7 @@ const ProductList = () => {
         titleButton='Add Product'
         path={ADD_PRODUCT_ROUTE}
       />
-      <div className='bg-white m-6'>
+      <div className='bg-white m-6 border p-6'>
         <TableFeature />
       </div>
     </div>
