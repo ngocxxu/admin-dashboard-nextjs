@@ -1,5 +1,6 @@
 import { TextHeader } from '@/components/Text';
 import { selectAuthState, setAuthState } from '@/store/reducer/authSlice';
+import { wrapper } from '@/store/store';
 import { USER_LIST_ROUTE } from '@/utils/consts';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -30,5 +31,20 @@ const UserList = () => {
     </div>
   );
 };
+
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) =>
+    async ({ params }) => {
+      // we can set the initial state from here
+      // we are setting to false but you can run your custom logic here
+    await store.dispatch(setAuthState(false));
+      console.log('State on server', store.getState());
+      return {
+        props: {
+          authState: false,
+        },
+      };
+    }
+);
 
 export default UserList;
