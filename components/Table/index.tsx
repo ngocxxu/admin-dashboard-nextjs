@@ -1,5 +1,5 @@
-import React from 'react';
 import { Image, Table } from '@mantine/core';
+import ButtonActionProductList from '../ProductsPage/ButtonActionProductList';
 
 const elements = [
   {
@@ -11,7 +11,7 @@ const elements = [
     stock: 2000,
     status: 'ACTIVE',
     date: '2021-10-30',
-    action: 'Edit/Delete',
+    action: () => <ButtonActionProductList />,
   },
   {
     img: 'https://picsum.photos/50',
@@ -22,7 +22,7 @@ const elements = [
     stock: 2000,
     status: 'ACTIVE',
     date: '2021-10-30',
-    action: 'Edit/Delete',
+    action: () => <ButtonActionProductList />,
   },
   {
     img: 'https://picsum.photos/50',
@@ -33,29 +33,7 @@ const elements = [
     stock: 2000,
     status: 'ACTIVE',
     date: '2021-10-30',
-    action: 'Edit/Delete',
-  },
-  {
-    img: 'https://picsum.photos/50',
-    name: 'Barium',
-    price: 1200,
-    offer: '25% OFF',
-    purchased: 100,
-    stock: 2000,
-    status: 'ACTIVE',
-    date: '2021-10-30',
-    action: 'Edit/Delete',
-  },
-  {
-    img: 'https://picsum.photos/50',
-    name: 'Cerium',
-    price: 1200,
-    offer: '25% OFF',
-    purchased: 100,
-    stock: 2000,
-    status: 'ACTIVE',
-    date: '2021-10-30',
-    action: 'Edit/Delete',
+    action: () => <ButtonActionProductList />,
   },
 ];
 
@@ -72,7 +50,7 @@ const TableFeature = () => {
       <td>{element.stock}</td>
       <td>{element.status}</td>
       <td>{element.date}</td>
-      <td>{element.action}</td>
+      <td>{element.action()}</td>
     </tr>
   ));
 

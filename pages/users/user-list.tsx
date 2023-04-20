@@ -37,7 +37,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
     async ({ params }) => {
       // we can set the initial state from here
       // we are setting to false but you can run your custom logic here
-    await store.dispatch(setAuthState(false));
+      await store.dispatch(setAuthState(false));
       console.log('State on server', store.getState());
       return {
         props: {
